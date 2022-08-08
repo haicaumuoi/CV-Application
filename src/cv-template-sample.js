@@ -60,10 +60,10 @@ const data = {
         "Any other fun stuff like varsity sports, fraternity/sorority, or something that gives you a little color",
     },
   ],
-  skill: [
-    {
-      description:
-        "Strategic planning; strategic partnerships; revenue modeling & forecasting; retail partnerships, sales, & distro; contract negotiations; account management; Amazon marketing; channel marketing; crowdfunding; copywriting; content marketing; brand marketing; DTC; Shopify; supply chain management; Keynote / PPT presentation",
-    },
-  ],
+  skill: {
+    description:
+      "Strategic planning; strategic partnerships; revenue modeling & forecasting; retail partnerships, sales, & distro; contract negotiations; account management; Amazon marketing; channel marketing; crowdfunding; copywriting; content marketing; brand marketing; DTC; Shopify; supply chain management; Keynote / PPT presentation",
+  },
 };
+
+export default data;

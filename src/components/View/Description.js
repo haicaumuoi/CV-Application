@@ -1,22 +1,21 @@
 import React, { useState } from "react";
+import uniqid from "uniqid";
 
 function Descriptions(description1, description2, description3) {
-  const description = [];
+  const descriptions = [];
   if (description1 !== null) {
-    description.push(description1);
+    descriptions.push(description1.description1);
   }
 
   if (description2 !== null) {
-    description.push(description2);
+    descriptions.push(description1.description2);
   }
 
   if (description3 !== null) {
-    description.push(description3);
+    descriptions.push(description1.description3);
   }
 
-  for (let i = 0; i < description.length; i++) {
-    return <li>{description}</li>;
-  }
+  return descriptions.map((description) => <li>{description}</li>);
 }
 
 export default Descriptions;

@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Skill({ description }) {
-  return <div className="skill-description text-left mt-2">{description}</div>;
+function Skill({ skillDescription }) {
+  return (
+    <div>
+      <div className="big-text uppercase text-base font-bold mt-3 text-left border-b border-black">
+        Skill
+      </div>
+      <div className="skill-description text-left mt-2">{skillDescription}</div>
+    </div>
+  );
 }
 
 export default Skill;

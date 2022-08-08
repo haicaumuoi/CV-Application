@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Projects({ projectName, description1, description2 }) {
+function Projects({ projectName, projectDescription1, projectDescription2 }) {
   return (
     <ul className="project-item">
       <li>
@@ -10,8 +10,8 @@ function Projects({ projectName, description1, description2 }) {
       </li>
       <li>
         <ul className="project-contribution list-disc text-left ml-4">
-          <li>{description1}</li>
-          <li>{description2}</li>
+          <li>{projectDescription1}</li>
+          <li>{projectDescription2}</li>
         </ul>
       </li>
     </ul>
