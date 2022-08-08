@@ -2,6 +2,7 @@ import React from "react";
 import Descriptions from "./Description";
 
 function WorkExperience({
+  key,
   companyName,
   timeWorked,
   jobTitle,

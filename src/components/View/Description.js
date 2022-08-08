@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import uniqid from "uniqid";
 
-function Descriptions(description1, description2, description3) {
+function Descriptions(description1, description2, description3, key) {
   const descriptions = [];
   if (description1 !== null) {
     descriptions.push(description1.description1);

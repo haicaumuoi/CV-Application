@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState, Component } from "react";
+import React, { useState, Component, useEffect } from "react";
 import Form from "./components/Form/Form";
 import PersonalDetails from "./components/View/PersonalDetail";
 import Education from "./components/View/Education";
@@ -15,75 +15,98 @@ function App() {
 
   const educationList = education.map((item) => {
     return {
+      key: uuidv4(),
       universityName: item.universityName,
-      time: item.time,
+      educationTime: item.time,
       degree: item.degree,
       location: item.location,
-      description1: item.description1,
-      description2: item.description2,
-      description3: item.description3,
+      educationDescription1: item.description1,
+      educationDescription2: item.description2,
+      educationDescription3: item.description3,
     };
   });
 
   const experienceList = experience.map((item) => {
     return {
+      key: uuidv4(),
       companyName: item.companyName,
       time: item.time,
       jobTitle: item.jobTitle,
       jobLocation: item.jobLocation,
-      description1: item.description1,
-      description2: item.description2,
-      description3: item.description3,
+      jobDescription1: item.description1,
+      jobDescription2: item.description2,
+      jobDescription3: item.description3,
     };
   });
 
   const projectList = projects.map((item) => {
     return {
+      key: uuidv4(),
       projectName: item.projectName,
-      description1: item.description1,
-      description2: item.description2,
+      projectDescription1: item.description1,
+      projectDescription2: item.description2,
     };
   });
 
+  const skillList = skill.map((item) => {
+    return {
+      key: uuidv4(),
+      skillDescription: item.description,
+    };
+  });
+
+  const handleTextAreaChange = (e) => {
+    const value = e.target.value;
+  };
+
   return (
     <div className="App">
-      <Form />
+      <Form onInputChange={handleTextAreaChange} />
+
       <div className="View basis-1/2">
         <div className="border border-neutral-300 p-10 shadow-xl ">
           <PersonalDetails {...personal} />
 
-          {experienceList.length !== 0 ? (
-            <section className="work-experience ">
-              <div className="big-text uppercase text-base font-bold mt-3 text-left border-b border-black">
-                Work experience
-              </div>
-              <ul>
-                <WorkExperience {...experienceList} />
-              </ul>
-            </section>
-          ) : null}
+          {/* {experienceList.length > 0 ? ( */}
+          <section className="work-experience ">
+            <div className="big-text uppercase text-base font-bold mt-3 text-left border-b border-black">
+              Work experience
+            </div>
+            <ul>
+              {experience.map((experienceList) => {
+                return <WorkExperience {...experienceList} />;
+              })}
+            </ul>
+          </section>
+          {/* ) : null} */}
 
-          {projectList.length !== 0 ? (
+          {projectList.length > 0 ? (
             <section className="project">
               <div className="big-text uppercase text-base font-bold mt-3 text-left border-b border-black">
                 Projects
               </div>
-              <Projects {...projectList} />
+              {projects.map((projectList) => {
+                return <Projects {...projectList} />;
+              })}
             </section>
           ) : null}
 
-          {educationList.length !== 0 ? (
+          {educationList.length > 0 ? (
             <section className="education">
               <div className="big-text uppercase text-base font-bold mt-3 text-left border-b border-black">
                 Education
               </div>
-              <Education {...educationList} />
+              {education.map((educationList) => {
+                return <Education {...educationList} />;
+              })}
             </section>
           ) : null}
 
-          {skill.length !== 0 ? (
+          {skillList.length > 0 ? (
             <section className="skill">
-              <Skill {...skill} />
+              {skill.map((skillList) => {
+                return <Skill {...skillList} />;
+              })}
             </section>
           ) : (
             <div></div>

@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-function Projects({ projectName, projectDescription1, projectDescription2 }) {
+function Projects({
+  projectName,
+  projectDescription1,
+  projectDescription2,
+  key,
+}) {
   return (
     <ul className="project-item">
       <li>

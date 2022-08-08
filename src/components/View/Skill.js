@@ -1,6 +1,6 @@
 import React from "react";
 
-function Skill({ skillDescription }) {
+function Skill({ skillDescription, key }) {
   return (
     <div>
       <div className="big-text uppercase text-base font-bold mt-3 text-left border-b border-black">

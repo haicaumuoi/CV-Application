@@ -8,14 +8,14 @@ const data = {
   experience: [
     {
       companyName: "Top Company",
-      time: "Oct. 2017 – Present",
+      timeWorked: "Oct. 2017 – Present",
       jobTitle: "Founder & CEO",
       jobLocation: "Denver, CO",
-      description1:
+      jobDescription1:
         " As Founder & CEO, I oversee our core strategies, product roadmap, ops, marketing, and fundraising.",
-      description2:
+      jobDescription2:
         " Core responsibility #3. Pretend this is where they stop     reading your resume. Whether Work or Education is your top section, the first 3 things they see better be your most impressive stuff, period.",
-      description3:
+      jobDescription3:
         "Core responsibility #4. Bullets #1 and #2 are for high-level descriptions of the company and/or your role.",
     },
     {
@@ -23,47 +23,50 @@ const data = {
       time: "Month Year – Month Year",
       jobTitle: "Job Title",
       jobLocation: "City, ST",
-      description1: "Core Responsibility #1",
-      description2: "Core Responsibility #2",
-      description3: "Core Responsibility #3",
+      jobDescription1: "Core Responsibility #1",
+      jobDescription2: "Core Responsibility #2",
+      jobDescription3: "Core Responsibility #3",
     },
     {
       companyName: "Company Name",
       time: "Month Year – Month Year",
       jobTitle: "Job Title",
       jobLocation: "City, ST",
-      description1: "Core Responsibility #1",
-      description2: "Core Responsibility #2",
-      description3: "Core Responsibility #3",
+      jobDescription1: "Core Responsibility #1",
+      jobDescription2: "Core Responsibility #2",
+      jobDescription3: "Core Responsibility #3",
     },
   ],
+
   projects: [
     {
       projectName: "Project Name",
-      description1:
+      projectDescription1:
         "As Founder & CEO, I oversee our core strategies, product roadmap, ops, marketing, and fundraising.",
-      description2:
+      projectDescription2:
         "Core responsibility #4. Bullets #1 and #2 are for high-level descriptions of the company and/or your role.",
     },
   ],
   education: [
     {
       universityName: "University Name",
-      time: "Graduation Time, Year",
+      educationTime: "Graduation Time, Year",
       degree: "Degree (e.g., BS), Majors (e.g., Computer Science)",
       location: "City, ST",
-      description1:
+      educationDescription1:
         "List your honors like summa cum laude or Economics Honors Society; 3.X/4.0 GPA (list only if GPA is over 3.3)",
-      description2:
+      educationDescription2:
         "Studied abroad in City, Country during spring/fall 20YY semester (University Name)",
-      description3:
+      educationDescription3:
         "Any other fun stuff like varsity sports, fraternity/sorority, or something that gives you a little color",
     },
   ],
-  skill: {
-    description:
-      "Strategic planning; strategic partnerships; revenue modeling & forecasting; retail partnerships, sales, & distro; contract negotiations; account management; Amazon marketing; channel marketing; crowdfunding; copywriting; content marketing; brand marketing; DTC; Shopify; supply chain management; Keynote / PPT presentation",
-  },
+  skill: [
+    {
+      skillDescription:
+        "Strategic planning; strategic partnerships; revenue modeling & forecasting; retail partnerships, sales, & distro; contract negotiations; account management; Amazon marketing; channel marketing; crowdfunding; copywriting; content marketing; brand marketing; DTC; Shopify; supply chain management; Keynote / PPT presentation",
+    },
+  ],
 };
 
 export default data;
