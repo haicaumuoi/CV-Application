@@ -11,9 +11,9 @@ import { v4 as uuidv4 } from "uuid";
 // import Descriptions from "./components/View/Description";
 
 function App() {
-  const { personal, experience, projects, education, skill } = data;
+  const [dataOutput, setData] = useState(data);
 
-  const educationList = education.map((item) => {
+  const educationList = dataOutput.education.map((item) => {
     return {
       key: uuidv4(),
       universityName: item.universityName,
@@ -26,7 +26,7 @@ function App() {
     };
   });
 
-  const experienceList = experience.map((item) => {
+  const experienceList = dataOutput.experience.map((item) => {
     return {
       key: uuidv4(),
       companyName: item.companyName,
@@ -39,7 +39,7 @@ function App() {
     };
   });
 
-  const projectList = projects.map((item) => {
+  const projectList = dataOutput.projects.map((item) => {
     return {
       key: uuidv4(),
       projectName: item.projectName,
@@ -48,7 +48,7 @@ function App() {
     };
   });
 
-  const skillList = skill.map((item) => {
+  const skillList = dataOutput.skill.map((item) => {
     return {
       key: uuidv4(),
       skillDescription: item.description,
@@ -57,35 +57,44 @@ function App() {
 
   const handleTextAreaChange = (e) => {
     const value = e.target.value;
+
+    setData(value);
   };
 
   return (
     <div className="App">
-      <Form onInputChange={handleTextAreaChange} />
+      <Form
+        name={dataOutput.personal.name}
+        email={dataOutput.personal.email}
+        phone={dataOutput.personal.phone}
+        location={dataOutput.personal.location}
+        onInputChange={handleTextAreaChange}
+      />
 
-      <div className="View basis-1/2">
-        <div className="border border-neutral-300 p-10 shadow-xl ">
-          <PersonalDetails {...personal} />
-
-          {/* {experienceList.length > 0 ? ( */}
-          <section className="work-experience ">
-            <div className="big-text uppercase text-base font-bold mt-3 text-left border-b border-black">
-              Work experience
-            </div>
-            <ul>
-              {experience.map((experienceList) => {
-                return <WorkExperience {...experienceList} />;
-              })}
-            </ul>
+      <div className="basis-1/2">
+        <div className="border border-black shadow-xl padding">
+          <section>
+            <PersonalDetails {...dataOutput.personal} />
           </section>
-          {/* ) : null} */}
+          {experienceList.length > 0 ? (
+            <section className="work-experience">
+              <div className="big-text uppercase text-base font-bold mt-3 text-left border-b border-black">
+                Work experience
+              </div>
+              <ul>
+                {experienceList.map((experienceList) => {
+                  return <WorkExperience {...experienceList} />;
+                })}
+              </ul>
+            </section>
+          ) : null}
 
           {projectList.length > 0 ? (
             <section className="project">
               <div className="big-text uppercase text-base font-bold mt-3 text-left border-b border-black">
                 Projects
               </div>
-              {projects.map((projectList) => {
+              {dataOutput.projects.map((projectList) => {
                 return <Projects {...projectList} />;
               })}
             </section>
@@ -96,7 +105,7 @@ function App() {
               <div className="big-text uppercase text-base font-bold mt-3 text-left border-b border-black">
                 Education
               </div>
-              {education.map((educationList) => {
+              {dataOutput.education.map((educationList) => {
                 return <Education {...educationList} />;
               })}
             </section>
@@ -104,13 +113,11 @@ function App() {
 
           {skillList.length > 0 ? (
             <section className="skill">
-              {skill.map((skillList) => {
+              {dataOutput.skill.map((skillList) => {
                 return <Skill {...skillList} />;
               })}
             </section>
-          ) : (
-            <div></div>
-          )}
+          ) : null}
         </div>
       </div>
     </div>

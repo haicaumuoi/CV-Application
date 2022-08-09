@@ -3,10 +3,13 @@ import InputField from "./InputField";
 import WorkExperience from "./ExperienceGroup";
 import EducationGroup from "./EducationGroup";
 import ProjectGroup from "./ProjectGroup";
-import data from "../../cv-template-sample";
+import App from "../../App";
 
-function Form(
-  personalDetails,
+function Form({
+  name,
+  email,
+  phone,
+  location,
   description,
   experience,
   project,
@@ -19,10 +22,8 @@ function Form(
   onProjectAdd,
   onEducationItemAdd,
   onDescriptionAdd,
-  onDescriptionDelete
-) {
-  const { name, phone, email, location } = personalDetails;
-
+  onDescriptionDelete,
+}) {
   return (
     <div className="Form basis-1/2 border border-black rounded">
       <div className="mx-8 my-10">
@@ -36,15 +37,15 @@ function Form(
             onChange={onInputChange}
           />
           <InputField
-            label="Phone Number"
-            value={phone}
-            name="phone"
-            onChange={onInputChange}
-          />
-          <InputField
             label="Email"
             value={email}
             name="email"
+            onChange={onInputChange}
+          />
+          <InputField
+            label="Phone Number"
+            value={phone}
+            name="phone"
             onChange={onInputChange}
           />
           <InputField

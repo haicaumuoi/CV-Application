@@ -10,6 +10,10 @@
   gap: 3rem;
 }
 
+.padding {
+  padding: 1.5rem;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
