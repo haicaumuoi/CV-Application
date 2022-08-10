@@ -2,13 +2,19 @@ import React from "react";
 import InputField from "./InputField";
 
 function ProjectGroup({
-  item,
+  projectName,
+  projectDescription1,
+  projectDescription2,
   index,
-  onInputArrayChange,
+  onInputChange,
   onItemDelete,
   onItemAdd,
 }) {
-  const { id, projectName, description } = item;
+  const projectGroup = {
+    projectName,
+    projectDescription1,
+    projectDescription2,
+  };
 
   return (
     <div>
@@ -16,15 +22,23 @@ function ProjectGroup({
         label="Project Name"
         value={projectName}
         name="projectName"
-        onChange={onInputArrayChange("experience", index)}
+        onChange={onInputChange}
         className="mt-1 border border-black  rounded-sm pl-3 h-8"
       />
 
       <InputField
-        label="Description"
-        value={description}
-        name="description"
-        onChange={onInputArrayChange("experience", index)}
+        label="Project Description"
+        value={projectDescription1}
+        name="projectDescription1"
+        onChange={onInputChange}
+        className="mt-1 border border-black  rounded-sm pl-3 h-8"
+      />
+
+      <InputField
+        label="Project Description"
+        value={projectDescription2}
+        name="projectDescription2"
+        onChange={onInputChange}
         className="mt-1 border border-black  rounded-sm pl-3 h-8"
       />
 
@@ -32,7 +46,7 @@ function ProjectGroup({
         <button
           type="button"
           className="bg-white hover:bg-gray-100 text-gray-800 font-normal py-2 px-4 border border-black rounded shadow text-sm w-full mt-1"
-          onClick={() => onItemDelete("experience", id)}
+          onClick={() => onItemDelete("experience")}
         >
           Delete Project
         </button>

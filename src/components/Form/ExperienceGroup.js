@@ -1,33 +1,45 @@
 import React from "react";
 import InputField from "./InputField";
 
-function WorkExperience({
-  item,
-  index,
-  onInputArrayChange,
+function ExperienceGroup({
+  companyName,
+  timeWorked,
+  jobTitle,
+  jobLocation,
+  jobDescription1,
+  jobDescription2,
+  jobDescription3,
+  onInputChange,
   onItemDelete,
   onItemAdd,
   onDescriptionAdd,
   onDescriptionDelete,
 }) {
-  const { id, companyName, timeSpent, jobTitle, joblocation, description } =
-    item;
+  // const experienceGroup = {
+  //   companyName: companyName,
+  //   timeWorked: timeWorked,
+  //   jobTitle: jobTitle,
+  //   joblocation: joblocation,
+  //   jobDescription1: jobDescription1,
+  //   jobDescription2: jobDescription2,
+  //   jobDescription3: jobDescription3,
+  // };
 
   return (
     <div>
       <InputField
         label="Company Name"
         value={companyName}
-        name="name"
-        onChange={onInputArrayChange("experience", index)}
+        name="companyName"
+        onChange={onInputChange}
         className="mt-1 border border-black  rounded-sm pl-3 h-8"
       />
 
       <InputField
         label="Time Worked"
-        value={timeSpent}
-        name="timeSpent"
-        onChange={onInputArrayChange("experience", index)}
+        value={timeWorked}
+        name="timeWorked"
+        onChange={onInputChange}
         className="mt-1 border border-black  rounded-sm pl-3 h-8"
       />
 
@@ -35,23 +47,39 @@ function WorkExperience({
         label="Job Title"
         value={jobTitle}
         name="jobTitle"
-        onChange={onInputArrayChange("experience", index)}
+        onChange={onInputChange}
         className="mt-1 border border-black  rounded-sm pl-3 h-8"
       />
 
       <InputField
         label="Job Location"
-        value={joblocation}
-        name="joblocation"
-        onChange={onInputArrayChange("experience", index)}
+        value={jobLocation}
+        name="jobLocation"
+        onChange={onInputChange}
         className="mt-1 border border-black  rounded-sm pl-3 h-8"
       />
 
       <InputField
         label="Job Description"
-        value={description}
-        name="description"
-        onChange={onInputArrayChange("experience", index)}
+        value={jobDescription1}
+        name="jobDescription1"
+        onChange={onInputChange}
+        className="mt-1 border border-black  rounded-sm pl-3 h-20"
+      />
+
+      <InputField
+        label="Job Description"
+        value={jobDescription2}
+        name="jobDescription2"
+        onChange={onInputChange}
+        className="mt-1 border border-black  rounded-sm pl-3 h-20"
+      />
+
+      <InputField
+        label="Job Description"
+        value={jobDescription3}
+        name="jobDescription3"
+        onChange={onInputChange}
         className="mt-1 border border-black  rounded-sm pl-3 h-20"
       />
 
@@ -59,7 +87,7 @@ function WorkExperience({
         <button
           type="button"
           className="bg-white hover:bg-gray-100 text-gray-800 font-normal py-2 px-4 border border-black rounded shadow text-sm w-full mt-1"
-          onClick={() => onItemDelete("experience", id)}
+          onClick={() => onItemDelete("experience")}
         >
           Delete Work Experience
         </button>
@@ -77,7 +105,7 @@ function WorkExperience({
         <button
           type="button"
           className="bg-white hover:bg-gray-100 text-gray-800 font-normal py-2 px-4 border border-black rounded shadow text-sm w-full mt-1"
-          onClick={onDescriptionAdd()}
+          onClick={onDescriptionAdd}
         >
           Delete Descritpion
         </button>
@@ -93,4 +121,4 @@ function WorkExperience({
   );
 }
 
-export default WorkExperience;
+export default ExperienceGroup;

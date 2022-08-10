@@ -2,7 +2,7 @@ import React from "react";
 
 function InputField({ label, value, id, name, onChange }) {
   if (!id) {
-    id = `input--${label.split(" ").join("-")}`;
+    id = { name };
   }
 
   return (

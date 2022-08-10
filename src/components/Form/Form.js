@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import InputField from "./InputField";
-import WorkExperience from "./ExperienceGroup";
+import ExperienceGroup from "./ExperienceGroup";
 import EducationGroup from "./EducationGroup";
 import ProjectGroup from "./ProjectGroup";
 import App from "../../App";
@@ -10,11 +10,27 @@ function Form({
   email,
   phone,
   location,
-  description,
-  experience,
-  project,
-  education,
-  onInputChange,
+  companyName,
+  timeWorked,
+  jobTitle,
+  jobLocation,
+  jobDescription1,
+  jobDescription2,
+  jobDescription3,
+  // experienceGroup,
+  // educationGroup,
+  universityName,
+  educationTime,
+  degree,
+  universityLocation,
+  educationDescription1,
+  educationDescription2,
+  educationDescription3,
+  // projectGroup,
+  projectName,
+  projectDescription1,
+  projectDescription2,
+  skillDescription,
   onInputArrayChange,
   onTextAreaChange,
   onItemDelete,
@@ -23,7 +39,12 @@ function Form({
   onEducationItemAdd,
   onDescriptionAdd,
   onDescriptionDelete,
+  onInputChange,
 }) {
+  const skillGroup = {
+    skillDescription,
+  };
+
   return (
     <div className="Form basis-1/2 border border-black rounded">
       <div className="mx-8 my-10">
@@ -32,8 +53,8 @@ function Form({
 
           <InputField
             label="Name"
-            value={name}
             name="name"
+            value={name}
             onChange={onInputChange}
           />
           <InputField
@@ -58,242 +79,78 @@ function Form({
 
         <section className="work-detail text-left flex flex-col">
           <h1 className="text-xl mt-5">Work Experience</h1>
-          <input
-            type="text"
-            className="mt-1 border border-black  rounded-sm pl-3 h-8"
-            name="company-name"
-            placeholder="Company Name"
+
+          {/* {experienceGroup.map((experienceNumber) => {
+            return ( */}
+          <ExperienceGroup
+            companyName={companyName}
+            timeWorked={timeWorked}
+            jobTitle={jobTitle}
+            jobLocation={jobLocation}
+            jobDescription1={jobDescription1}
+            jobDescription2={jobDescription2}
+            jobDescription3={jobDescription3}
+            onInputChange={onInputChange}
+            onItemAdd={onExperienceItemAdd}
+            onItemDelete={onItemDelete}
+            onDescriptionAdd={onDescriptionAdd}
+            onDescriptionDelete={onDescriptionDelete}
           />
-          <input
-            type="text"
-            className="mt-1 border border-black  rounded-sm pl-3 h-8"
-            name="time"
-            placeholder="Time Worked"
-          />
-          <input
-            type="text"
-            className="mt-1 border border-black  rounded-sm pl-3 h-8"
-            name="job-title"
-            placeholder="Job Title"
-          />
-          <input
-            type="text"
-            className="mt-1 border border-black  rounded-sm pl-3 h-8"
-            name="work-location"
-            placeholder="Work Location"
-          />
-          <textarea
-            name="core-responsibility"
-            id=""
-            cols="20"
-            rows="1"
-            placeholder="Description"
-            className="mt-1 border border-black  rounded-sm pl-3 h-20"
-          ></textarea>
-          <textarea
-            name="core-responsibility"
-            id=""
-            cols="20"
-            rows="1"
-            placeholder="Description"
-            className="mt-1 border border-black  rounded-sm pl-3 h-20"
-          ></textarea>
-          <textarea
-            name="core-responsibility"
-            id=""
-            cols="20"
-            rows="1"
-            placeholder="Description"
-            className="mt-1 border border-black  rounded-sm pl-3 h-20"
-          ></textarea>
-          <div>
-            <button
-              type="button"
-              className="bg-white hover:bg-gray-100 text-gray-800 font-normal py-2 px-4 border border-black rounded shadow text-sm w-full mt-1"
-              onClick={() => onItemDelete()}
-            >
-              Delete Work Experience
-            </button>
-          </div>
-          <div>
-            <button
-              type="button"
-              className="bg-white hover:bg-gray-100 text-gray-800 font-normal py-2 px-4 border border-black rounded shadow text-sm w-full mt-1"
-            >
-              Add Work Experience
-            </button>
-          </div>
-          <div>
-            <button
-              type="button"
-              className="bg-white hover:bg-gray-100 text-gray-800 font-normal py-2 px-4 border border-black rounded shadow text-sm w-full mt-1"
-            >
-              Delete Descritpion
-            </button>
-          </div>{" "}
-          <div>
-            <button
-              type="button"
-              className="bg-white hover:bg-gray-100 text-gray-800 font-normal py-2 px-4 border border-black rounded shadow text-sm w-full mt-1"
-            >
-              Add Description
-            </button>
-          </div>
-          {/* // {experience.length === 0 ? (
-          //   <button
-          //     type="button"
-          //     className="bg-white hover:bg-gray-100 text-gray-800 font-normal py-2 px-4 border border-black rounded shadow text-sm w-full mt-1"
-          //     onClick={onExperienceItemAdd}
-          //   >
-          //     Add
-          //   </button>
-          // ) : (
-          //   experience.map((item, index) => {
-          //     return (
-          //       <WorkExperience
-          //         item={item}
-          //         key={index}
-          //         index={index}
-          //         onInputArrayChange={onInputChange}
-          //         onItemAdd={onExperienceItemAdd}
-          //         onItemDelete={onItemDelete}
-          //         onDescriptionAdd={onDescriptionAdd}
-          //         onDescriptionDelete={onDescriptionDelete}
-          //       />
-          //     );
-          //   })
-          // )} */}
+          {/* );
+          })} */}
         </section>
 
         <section className="text-left flex flex-col">
           <h1 className="text-xl mt-5">Projects</h1>
-
-          <InputField
-            label="Project Name"
-            value={name}
-            name="project-name"
-            onChange={onInputChange}
+          <ProjectGroup
+            projectName={projectName}
+            projectDescription1={projectDescription1}
+            projectDescription2={projectDescription2}
+            onInputChange={onInputChange}
+            onItemAdd={onExperienceItemAdd}
+            onItemDelete={onItemDelete}
+            onDescriptionAdd={onDescriptionAdd}
+            onDescriptionDelete={onDescriptionDelete}
           />
-          <textarea
-            name="project-responsibility"
-            id=""
-            cols="20"
-            rows="1"
-            placeholder="Description"
-            className="mt-1 border border-black  rounded-sm pl-3 h-20"
-          ></textarea>
-          {/* {project.length === 0 ? (
-            <button
-              type="button"
-              className="bg-white hover:bg-gray-100 text-gray-800 font-normal py-2 px-4 border border-black rounded shadow text-sm w-full mt-1"
-              onClick={onProjectAdd}
-            >
-              Add
-            </button>
-          ) : (
-            project.map((item, index) => {
-              return (
-                <ProjectGroup
-                  item={item}
-                  key={index}
-                  index={index}
-                  onInputArrayChange={onInputChange}
-                  onItemAdd={onProjectAdd}
-                  onItemDelete={onItemDelete}
-                  onDescriptionAdd={onDescriptionAdd}
-                  onDescriptionDelete={onDescriptionDelete}
-                />
-              );
-            })
-          )} */}
         </section>
 
         <section className="education-detail text-left flex flex-col">
-          <h1 className="text-xl mt-5">Education Details</h1>
-          <input
-            type="text"
-            name="university-name"
-            placeholder="University Name"
-            className="mt-1 border border-black  rounded-sm pl-3 h-8"
+          <h1 className="text-xl mt-5">Education</h1>
+          <EducationGroup
+            universityName={universityName}
+            educationTime={educationTime}
+            universityLocation={universityLocation}
+            degree={degree}
+            educationDescription1={educationDescription1}
+            educationDescription2={educationDescription2}
+            educationDescription3={educationDescription3}
+            onInputChange={onInputChange}
+            onItemAdd={onExperienceItemAdd}
+            onItemDelete={onItemDelete}
+            onDescriptionAdd={onDescriptionAdd}
+            onDescriptionDelete={onDescriptionDelete}
           />
-          <input
-            type="text"
-            name="graduation-time"
-            placeholder="Graduation Time"
-            className="mt-1 border border-black  rounded-sm pl-3 h-8"
-          />
-          <input
-            type="text"
-            className="mt-1 border border-black  rounded-sm pl-3 h-8"
-            name="degree"
-            placeholder="Degree"
-          />
-          <input
-            type="text"
-            className="mt-1 border border-black  rounded-sm pl-3 h-8"
-            name="university location"
-            placeholder="University Location"
-          />
-          <textarea
-            name="university-responsibility"
-            id=""
-            cols="20"
-            rows="1"
-            placeholder="Description"
-            className="mt-1 border border-black  rounded-sm pl-3 h-20"
-          ></textarea>
-          <textarea
-            name="university-responsibility"
-            id=""
-            cols="20"
-            rows="1"
-            placeholder="Description"
-            className="mt-1 border border-black  rounded-sm pl-3 h-20"
-          ></textarea>
-          <textarea
-            name="university-responsibility"
-            id=""
-            cols="20"
-            rows="1"
-            placeholder="Description"
-            className="mt-1 border border-black  rounded-sm pl-3 h-20"
-          ></textarea>
-          {/* {education.length === 0 ? (
-            <button
-              type="button"
-              className="bg-white hover:bg-gray-100 text-gray-800 font-normal py-2 px-4 border border-black rounded shadow text-sm w-full mt-1"
-              onClick={onEducationItemAdd}
-            >
-              Add
-            </button>
-          ) : (
-            education.map((item, index) => {
-              return (
-                <EducationGroup
-                  item={item}
-                  key={index}
-                  index={index}
-                  onInputArrayChange={onInputChange}
-                  onItemAdd={onEducationItemAdd}
-                  onItemDelete={onItemDelete}
-                  onDescriptionAdd={onDescriptionAdd}
-                  onDescriptionDelete={onDescriptionDelete}
-                />
-              );
-            })
-          )} */}
         </section>
 
         <section className="skill text-left flex flex-col ">
           <h1 className="text-xl mt-5">Skill</h1>
-          <textarea
-            name="skill-description"
+          {/* <textarea
+            name="skillDescription"
+            value={skillGroup.skillDescription}
             id=""
             cols="20"
             rows="1"
             placeholder="Skill Description"
             className="mt-1 border border-black  rounded-sm pl-3 h-20"
-          ></textarea>
+            onChange={onInputChange}
+          ></textarea> */}
+          <InputField
+            name="skillDescription"
+            value={skillGroup.skillDescription}
+            placeholder="Skill Description"
+            className="mt-1 border border-black  rounded-sm pl-3 h-20"
+            onChange={onInputChange}
+          />
         </section>
       </div>
     </div>

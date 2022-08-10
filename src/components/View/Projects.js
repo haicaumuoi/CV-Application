@@ -4,7 +4,6 @@ function Projects({
   projectName,
   projectDescription1,
   projectDescription2,
-  key,
 }) {
   return (
     <ul className="project-item">

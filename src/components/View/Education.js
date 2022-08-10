@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Descriptions from "./Description";
 
 function Education({
-  key,
   universityName,
   educationTime,
   degree,
