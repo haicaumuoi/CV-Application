@@ -9,19 +9,20 @@ function WorkExperience({
   jobDescription1,
   jobDescription2,
   jobDescription3,
+  key,
 }) {
   return (
     <li className="work-experience-item mt-3">
-      <div className="company-name__time flex justify-between font-semibold">
-        <p className="company-name">{companyName}</p>
-        <p className="time-spent">{timeWorked}</p>
+      <div className="flex justify-between font-semibold">
+        <p>{companyName}</p>
+        <p>{timeWorked}</p>
       </div>
-      <div className="job-title__location flex justify-between italic">
-        <p className="job-title">{jobTitle}</p>
-        <p className="job-location">{jobLocation}</p>
+      <div className=" flex justify-between italic">
+        <p>{jobTitle}</p>
+        <p>{jobLocation}</p>
       </div>
 
-      <ul className="core-responsibility list-disc text-left ml-4">
+      <ul className="list-disc text-left ml-4">
         <Descriptions
           description1={jobDescription1}
           description2={jobDescription2}

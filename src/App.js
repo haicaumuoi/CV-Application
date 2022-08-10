@@ -25,10 +25,6 @@ function App() {
       return { ...dataOutput, [name]: value };
     });
 
-    setExData((dataExperience) => {
-      return { ...dataExperience, [name]: value };
-    });
-
     setEduData((dataEducation) => {
       return { ...dataEducation, [name]: value };
     });
@@ -42,7 +38,7 @@ function App() {
     });
   };
 
-  // const experienceList = dataExperience.map((item) => {
+  // const experienceList = [dataExperience].map((item) => {
   //   return {
   //     key: uuidv4(),
   //     companyName: item.companyName,
@@ -55,34 +51,25 @@ function App() {
   //   };
   // });
 
-  // const projectList = dataProject.map((item) => {
-  //   return {
-  //     key: uuidv4(),
-  //     projectName: item.projectName,
-  //     projectDescription1: item.projectDescription1,
-  //     projectDescription2: item.projectDescription2,
-  //   };
-  // });
+  function output() {
+    console.log(
+      dataExperience.map((prev) => {
+        return { ...prev };
+      })
+    );
+  }
 
-  // const educationList = dataEducation.map((item) => {
-  //   return {
-  //     key: uuidv4(),
-  //     universityName: item.universityName,
-  //     educationTime: item.educationTime,
-  //     degree: item.degree,
-  //     location: item.location,
-  //     educationDescription1: item.educationDescription1,
-  //     educationDescription2: item.educationDescription2,
-  //     educationDescription3: item.educationDescription3,
-  //   };
-  // });
+  const updateFieldChanged = (index, array) => (e) => {
+    console.log("index: " + index);
+    console.log("property name: " + e.target.name);
+    const name = e.target.name;
+    const value = e.target.value;
+    let newArr = [...array]; // copying the old datas array
+    newArr[index][name] = value; // replace e.target.value with whatever you want to change it to
 
-  // const skillList = dataSkill.map((item) => {
-  //   return {
-  //     key: uuidv4(),
-  //     skillDescription: item.skillDescription,
-  //   };
-  // });
+    console.log(newArr[index]);
+    setExData(newArr);
+  };
 
   return (
     <div className="App">
@@ -98,6 +85,7 @@ function App() {
         jobDescription1={dataExperience.jobDescription1}
         jobDescription2={dataExperience.jobDescription2}
         jobDescription3={dataExperience.jobDescription3}
+        jobId={dataExperience.id}
         projectName={dataProject.projectName}
         projectDescription1={dataProject.projectDescription1}
         projectDescription2={dataProject.projectDescription2}
@@ -109,12 +97,16 @@ function App() {
         educationDescription2={dataEducation.educationDescription2}
         educationDescription3={dataEducation.educationDescription3}
         skillDescription={dataSkill.skillDescription}
+        experienceArray={dataExperience}
         // experienceGroup={dataOutput.experience}
         // educationGroup={dataOutput.education}
         // projectGroup={dataOutput.projects}
         // skillDescription={dataOutput.skill.skillDescription}
+        onInputArrayChange={updateFieldChanged}
         onInputChange={handleTextAreaChange}
       />
+
+      <button onClick={output}>Click!</button>
 
       <div className="basis-1/2">
         <div className="border border-black shadow-xl padding">
@@ -122,20 +114,20 @@ function App() {
             <PersonalDetails {...dataOutput} />
           </section>
 
-          {/* {experienceList.length > 0 ? ( */}
-          <section className="work-experience">
-            <div className="big-text uppercase text-base font-bold mt-3 text-left border-b border-black">
-              Work experience
-            </div>
-            <ul>
-              {/* {dataExperience.map((experienceList) => {
+          {dataExperience.length > 0 ? (
+            <section className="work-experience">
+              <div className="big-text uppercase text-base font-bold mt-3 text-left border-b border-black">
+                Work experience
+              </div>
+              <ul>
+                {dataExperience.map((experienceList) => {
                   return <WorkExperience {...experienceList} />;
-                })} */}
-              {/* <WorkExperience {...dataOutput.experience} /> */}
-              <WorkExperience {...dataExperience} />
-            </ul>
-          </section>
-          {/* ) : null} */}
+                })}
+                {/* <WorkExperience {...dataOutput.experience} /> */}
+                {/* <WorkExperience {...dataExperience} /> */}
+              </ul>
+            </section>
+          ) : null}
 
           {/* {projectList.length > 0 ? ( */}
           <section className="project">

@@ -17,6 +17,7 @@ function Form({
   jobDescription1,
   jobDescription2,
   jobDescription3,
+  experienceArray,
   // experienceGroup,
   // educationGroup,
   universityName,
@@ -80,24 +81,27 @@ function Form({
         <section className="work-detail text-left flex flex-col">
           <h1 className="text-xl mt-5">Work Experience</h1>
 
-          {/* {experienceGroup.map((experienceNumber) => {
-            return ( */}
-          <ExperienceGroup
-            companyName={companyName}
-            timeWorked={timeWorked}
-            jobTitle={jobTitle}
-            jobLocation={jobLocation}
-            jobDescription1={jobDescription1}
-            jobDescription2={jobDescription2}
-            jobDescription3={jobDescription3}
-            onInputChange={onInputChange}
-            onItemAdd={onExperienceItemAdd}
-            onItemDelete={onItemDelete}
-            onDescriptionAdd={onDescriptionAdd}
-            onDescriptionDelete={onDescriptionDelete}
-          />
-          {/* );
-          })} */}
+          {experienceArray.map((experience) => {
+            return (
+              <ExperienceGroup
+                companyName={experience.companyName}
+                timeWorked={experience.timeWorked}
+                jobTitle={experience.jobTitle}
+                jobLocation={experience.jobLocation}
+                jobDescription1={experience.jobDescription1}
+                jobDescription2={experience.jobDescription2}
+                jobDescription3={experience.jobDescription3}
+                onInputChange={onInputArrayChange(
+                  experience.id,
+                  experienceArray
+                )}
+                onItemAdd={onExperienceItemAdd}
+                onItemDelete={onItemDelete}
+                onDescriptionAdd={onDescriptionAdd}
+                onDescriptionDelete={onDescriptionDelete}
+              />
+            );
+          })}
         </section>
 
         <section className="text-left flex flex-col">
@@ -134,16 +138,6 @@ function Form({
 
         <section className="skill text-left flex flex-col ">
           <h1 className="text-xl mt-5">Skill</h1>
-          {/* <textarea
-            name="skillDescription"
-            value={skillGroup.skillDescription}
-            id=""
-            cols="20"
-            rows="1"
-            placeholder="Skill Description"
-            className="mt-1 border border-black  rounded-sm pl-3 h-20"
-            onChange={onInputChange}
-          ></textarea> */}
           <InputField
             name="skillDescription"
             value={skillGroup.skillDescription}
