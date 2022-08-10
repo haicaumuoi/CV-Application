@@ -5,7 +5,7 @@ function Education({
   universityName,
   educationTime,
   degree,
-  educationLocation,
+  universityLocation,
   educationDescription1,
   educationDescription2,
   educationDescription3,
@@ -21,7 +21,7 @@ function Education({
       <li>
         <div className="education-title flex justify-between italic">
           <p className="education-degree">{degree}</p>
-          <p>{educationLocation}</p>
+          <p>{universityLocation}</p>
         </div>
       </li>
       <li>

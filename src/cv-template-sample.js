@@ -46,34 +46,41 @@ const data = {
       jobDescription3: "Core Responsibility #3",
     },
   ],
-  projects: {
-    key: uuidv4(),
-    projectName: "Project Name",
-    projectDescription1:
-      "As Founder & CEO, I oversee our core strategies, product roadmap, ops, marketing, and fundraising.",
-    projectDescription2:
-      "Core responsibility #4. Bullets #1 and #2 are for high-level descriptions of the company and/or your role.",
-  },
-
-  education: {
-    key: uuidv4(),
-    universityName: "University Name",
-    educationTime: "Graduation Time, Year",
-    degree: "Degree (e.g., BS), Majors (e.g., Computer Science)",
-    universityLocation: "City, ST",
-    educationDescription1:
-      "List your honors like summa cum laude or Economics Honors Society; 3.X/4.0 GPA (list only if GPA is over 3.3)",
-    educationDescription2:
-      "Studied abroad in City, Country during spring/fall 20YY semester (University Name)",
-    educationDescription3:
-      "Any other fun stuff like varsity sports, fraternity/sorority, or something that gives you a little color",
-  },
-
-  skill: {
-    key: uuidv4(),
-    skillDescription:
-      "Strategic planning; strategic partnerships; revenue modeling & forecasting; retail partnerships, sales, & distro; contract negotiations; account management; Amazon marketing; channel marketing; crowdfunding; copywriting; content marketing; brand marketing; DTC; Shopify; supply chain management; Keynote / PPT presentation",
-  },
+  projects: [
+    {
+      id: 0,
+      key: uuidv4(),
+      projectName: "Project Name",
+      projectDescription1:
+        "As Founder & CEO, I oversee our core strategies, product roadmap, ops, marketing, and fundraising.",
+      projectDescription2:
+        "Core responsibility #4. Bullets #1 and #2 are for high-level descriptions of the company and/or your role.",
+    },
+  ],
+  education: [
+    {
+      id: 0,
+      key: uuidv4(),
+      universityName: "University Name",
+      educationTime: "Graduation Time, Year",
+      degree: "Degree (e.g., BS), Majors (e.g., Computer Science)",
+      universityLocation: "City, ST",
+      educationDescription1:
+        "List your honors like summa cum laude or Economics Honors Society; 3.X/4.0 GPA (list only if GPA is over 3.3)",
+      educationDescription2:
+        "Studied abroad in City, Country during spring/fall 20YY semester (University Name)",
+      educationDescription3:
+        "Any other fun stuff like varsity sports, fraternity/sorority, or something that gives you a little color",
+    },
+  ],
+  skill: [
+    {
+      id: 0,
+      key: uuidv4(),
+      skillDescription:
+        "Strategic planning; strategic partnerships; revenue modeling & forecasting; retail partnerships, sales, & distro; contract negotiations; account management; Amazon marketing; channel marketing; crowdfunding; copywriting; content marketing; brand marketing; DTC; Shopify; supply chain management; Keynote / PPT presentation",
+    },
+  ],
 };
 
 export default data;

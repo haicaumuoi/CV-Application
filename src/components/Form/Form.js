@@ -18,6 +18,10 @@ function Form({
   jobDescription2,
   jobDescription3,
   experienceArray,
+  educationArray,
+  projectArray,
+  skillArray,
+  jobId,
   // experienceGroup,
   // educationGroup,
   universityName,
@@ -106,45 +110,57 @@ function Form({
 
         <section className="text-left flex flex-col">
           <h1 className="text-xl mt-5">Projects</h1>
-          <ProjectGroup
-            projectName={projectName}
-            projectDescription1={projectDescription1}
-            projectDescription2={projectDescription2}
-            onInputChange={onInputChange}
-            onItemAdd={onExperienceItemAdd}
-            onItemDelete={onItemDelete}
-            onDescriptionAdd={onDescriptionAdd}
-            onDescriptionDelete={onDescriptionDelete}
-          />
+          {projectArray.map((project) => {
+            return (
+              <ProjectGroup
+                projectName={project.projectName}
+                projectDescription1={project.projectDescription1}
+                projectDescription2={project.projectDescription2}
+                onInputChange={onInputArrayChange(project.id, projectArray)}
+                onItemAdd={onExperienceItemAdd}
+                onItemDelete={onItemDelete}
+                onDescriptionAdd={onDescriptionAdd}
+                onDescriptionDelete={onDescriptionDelete}
+              />
+            );
+          })}
         </section>
 
         <section className="education-detail text-left flex flex-col">
           <h1 className="text-xl mt-5">Education</h1>
-          <EducationGroup
-            universityName={universityName}
-            educationTime={educationTime}
-            universityLocation={universityLocation}
-            degree={degree}
-            educationDescription1={educationDescription1}
-            educationDescription2={educationDescription2}
-            educationDescription3={educationDescription3}
-            onInputChange={onInputChange}
-            onItemAdd={onExperienceItemAdd}
-            onItemDelete={onItemDelete}
-            onDescriptionAdd={onDescriptionAdd}
-            onDescriptionDelete={onDescriptionDelete}
-          />
+          {educationArray.map((education) => {
+            return (
+              <EducationGroup
+                universityName={education.universityName}
+                educationTime={education.educationTime}
+                universityLocation={education.universityLocation}
+                degree={education.degree}
+                educationDescription1={education.educationDescription1}
+                educationDescription2={education.educationDescription2}
+                educationDescription3={education.educationDescription3}
+                onInputChange={onInputArrayChange(education.id, educationArray)}
+                onItemAdd={onExperienceItemAdd}
+                onItemDelete={onItemDelete}
+                onDescriptionAdd={onDescriptionAdd}
+                onDescriptionDelete={onDescriptionDelete}
+              />
+            );
+          })}
         </section>
 
         <section className="skill text-left flex flex-col ">
           <h1 className="text-xl mt-5">Skill</h1>
-          <InputField
-            name="skillDescription"
-            value={skillGroup.skillDescription}
-            placeholder="Skill Description"
-            className="mt-1 border border-black  rounded-sm pl-3 h-20"
-            onChange={onInputChange}
-          />
+          {skillArray.map((skill) => {
+            return (
+              <InputField
+                name="skillDescription"
+                value={skill.skillDescription}
+                placeholder="Skill Description"
+                className="mt-1 border border-black  rounded-sm pl-3 h-20"
+                onChange={onInputArrayChange(skill.id, skillArray)}
+              />
+            );
+          })}
         </section>
       </div>
     </div>
