@@ -26,13 +26,15 @@ function App() {
     });
   };
 
-  function output() {
-    console.log(
-      dataExperience.map((prev) => {
-        return { ...prev };
-      })
-    );
-  }
+  // function output() {
+  //   setExData(
+  //     (current) =>
+  //       current.filter((experience) => {
+  //         return experience.id !== 1;
+  //       }),
+  //     console.log("delete experience")
+  //   );
+  // }
 
   const updateFieldChanged = (index, array) => (e) => {
     console.log("index: " + index);
@@ -53,6 +55,103 @@ function App() {
       setSkillData(newArr);
     }
   };
+
+  const addExperience = () => {
+    const id = dataExperience[dataExperience.length - 1].id + 1;
+    setExData((dataExperience) =>
+      // eslint-disable-next-line no-unused-expressions
+      [
+        ...dataExperience,
+        {
+          key: uuidv4(),
+          id,
+          companyName: "",
+          timeWorked: "",
+          jobTitle: "",
+          jobLocation: "",
+          jobDescription1: "",
+          jobDescription2: "",
+          jobDescription3: "",
+        },
+      ]
+    );
+    console.log(dataExperience);
+  };
+
+  const addProjects = () => {
+    const id = dataProject[dataProject.length - 1].id + 1;
+    setProjectData((dataProject) =>
+      // eslint-disable-next-line no-unused-expressions
+      [
+        ...dataProject,
+        {
+          key: uuidv4(),
+          id,
+          projectName: "",
+          projectDescription1: "",
+          projectDescription2: "",
+        },
+      ]
+    );
+    console.log(dataProject);
+  };
+
+  const addEducation = () => {
+    const id = dataEducation[dataEducation.length - 1].id + 1;
+    setEduData((dataEducation) =>
+      // eslint-disable-next-line no-unused-expressions
+      [
+        ...dataEducation,
+        {
+          key: uuidv4(),
+          id,
+          universityName: "",
+          educationTime: "",
+          degree: "",
+          universityLocation: "",
+          educationDescription1: "",
+          educationDescription2: "",
+          educationDescription3: "",
+        },
+      ]
+    );
+    console.log(dataEducation);
+  };
+
+  const deleteObject = (index, array) => {
+    if (array === dataExperience) {
+      setExData(
+        (current) =>
+          current.filter((experience) => {
+            return experience.id !== index;
+          }),
+        console.log("delete experience")
+      );
+    } else if (array === dataProject) {
+      setProjectData(
+        (current) =>
+          current.filter((projects) => {
+            return projects.id !== index;
+          }),
+        console.log("delete projects")
+      );
+    } else if (array === dataEducation) {
+      setEduData(
+        (current) =>
+          current.filter((education) => {
+            return education.id !== index;
+          }),
+        console.log("delete education")
+      );
+    } else if (array === dataSkill) {
+      setSkillData((current) =>
+        current.filter((skill) => {
+          return skill.id !== index;
+        })
+      );
+    }
+  };
+
   return (
     <div className="App">
       <Form
@@ -82,6 +181,10 @@ function App() {
         educationArray={dataEducation}
         projectArray={dataProject}
         skillArray={dataSkill}
+        onExperienceItemAdd={addExperience}
+        onEducationItemAdd={addEducation}
+        onProjectAdd={addProjects}
+        onItemDelete={deleteObject}
         // experienceGroup={dataOutput.experience}
         // educationGroup={dataOutput.education}
         // projectGroup={dataOutput.projects}
@@ -93,7 +196,7 @@ function App() {
       {/* <button onClick={output}>Click!</button> */}
 
       <div className="basis-1/2">
-        <div className="border border-black shadow-xl padding">
+        <div className="border border-black shadow-xl padding sticky">
           <section>
             <PersonalDetails {...dataOutput} />
           </section>
@@ -107,8 +210,6 @@ function App() {
                 {dataExperience.map((experienceList) => {
                   return <WorkExperience {...experienceList} />;
                 })}
-                {/* <WorkExperience {...dataOutput.experience} /> */}
-                {/* <WorkExperience {...dataExperience} /> */}
               </ul>
             </section>
           ) : null}

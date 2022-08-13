@@ -87,7 +87,7 @@ function ExperienceGroup({
         <button
           type="button"
           className="bg-white hover:bg-gray-100 text-gray-800 font-normal py-2 px-4 border border-black rounded shadow text-sm w-full mt-1"
-          onClick={() => onItemDelete("experience")}
+          onClick={onItemDelete}
         >
           Delete Work Experience
         </button>

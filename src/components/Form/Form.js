@@ -100,7 +100,9 @@ function Form({
                   experienceArray
                 )}
                 onItemAdd={onExperienceItemAdd}
-                onItemDelete={onItemDelete}
+                onItemDelete={() =>
+                  onItemDelete(experience.id, experienceArray)
+                }
                 onDescriptionAdd={onDescriptionAdd}
                 onDescriptionDelete={onDescriptionDelete}
               />
@@ -117,8 +119,8 @@ function Form({
                 projectDescription1={project.projectDescription1}
                 projectDescription2={project.projectDescription2}
                 onInputChange={onInputArrayChange(project.id, projectArray)}
-                onItemAdd={onExperienceItemAdd}
-                onItemDelete={onItemDelete}
+                onItemAdd={onProjectAdd}
+                onItemDelete={() => onItemDelete(project.id, projectArray)}
                 onDescriptionAdd={onDescriptionAdd}
                 onDescriptionDelete={onDescriptionDelete}
               />
@@ -139,8 +141,8 @@ function Form({
                 educationDescription2={education.educationDescription2}
                 educationDescription3={education.educationDescription3}
                 onInputChange={onInputArrayChange(education.id, educationArray)}
-                onItemAdd={onExperienceItemAdd}
-                onItemDelete={onItemDelete}
+                onItemAdd={onEducationItemAdd}
+                onItemDelete={() => onItemDelete(education.id, educationArray)}
                 onDescriptionAdd={onDescriptionAdd}
                 onDescriptionDelete={onDescriptionDelete}
               />
