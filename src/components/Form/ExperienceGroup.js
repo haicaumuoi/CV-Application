@@ -100,23 +100,6 @@ function ExperienceGroup({
           Add Work Experience
         </button>
       </div>
-
-      <div className="btn-group">
-        <button
-          type="button"
-          className="bg-white hover:bg-gray-100 text-gray-800 font-normal py-2 px-4 border border-black rounded shadow text-sm w-full mt-1"
-          onClick={onDescriptionAdd}
-        >
-          Delete Descritpion
-        </button>
-        <button
-          type="button"
-          className="bg-white hover:bg-gray-100 text-gray-800 font-normal py-2 px-4 border border-black rounded shadow text-sm w-full mt-1"
-          onClick={onDescriptionDelete}
-        >
-          Add Description
-        </button>
-      </div>
     </div>
   );
 }
