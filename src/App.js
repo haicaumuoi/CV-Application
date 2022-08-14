@@ -8,6 +8,7 @@ import Projects from "./components/View/Projects";
 import Skill from "./components/View/Skill";
 import data from "./cv-template-sample";
 import { v4 as uuidv4 } from "uuid";
+import { useReactToPrint } from "react-to-print";
 // import Descriptions from "./components/View/Description";
 
 function App() {
@@ -152,6 +153,12 @@ function App() {
     }
   };
 
+  const printRef = React.useRef();
+
+  const handlePrint = useReactToPrint({
+    content: () => printRef.current,
+  });
+
   return (
     <div className="App">
       <Form
@@ -196,7 +203,10 @@ function App() {
       {/* <button onClick={output}>Click!</button> */}
 
       <div className="basis-1/2">
-        <div className="border border-black shadow-xl padding sticky">
+        <div
+          className="border border-black shadow-xl padding sticky"
+          ref={printRef}
+        >
           <section>
             <PersonalDetails {...dataOutput} />
           </section>
@@ -251,6 +261,12 @@ function App() {
             </section>
           ) : null}
         </div>
+        <button
+          className="bg-white hover:bg-gray-100 text-gray-800 font-normal py-2 px-4 border border-black rounded shadow text-sm w-full mt-1"
+          onClick={handlePrint}
+        >
+          Print
+        </button>
       </div>
     </div>
   );
